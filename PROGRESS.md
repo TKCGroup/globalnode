@@ -24,6 +24,14 @@
 
 **Deferred (still open from MID-TERM):** real Altbox product photo, Altbox deep-link to exact product page, competitive-landing research, light-mode sketch, spec/consulate sibling repos. None block launch.
 
+## Carryover Notes (T1 addendum — Cloudflare fleet leverage, 2026-05-30)
+
+Thread expanded from globalnode → fleet-wide Cloudflare hardening (Tyler handed a full-perms CF API token; account `75e9fbcd126fdb99cc29ed411ba83dc7`). **All 15 TKC domains are on one CF account, free plan.** Done this thread:
+- **GA4** added to globalnode (`G-MHFN1LZZ12`) — TEMPORARY, remove when real traffic arrives + restore the "zero third-party requests" footer claim. Footer made honest now.
+- **DNSSEC enabled on all 15 zones** (pending → auto-active for the 10 CF-registrar domains; 5 external need DS at registrar: globalnode.ai, tkcgroup.co, textalerts.ai, witcraft.ai, batchformat.ai — DS values in thread).
+- **Email-auth hardening, fleet-wide** (verified live via 1.1.1.1): non-senders (altbot, globalnode, batchformat, blackswan.estate, inboxsquire, ourkoko, roadflippin, wanderlemon) → `SPF -all` + `DMARC p=reject`; senders (hamr, textalerts, bealigned, witcraft, minicfo) → `DMARC p=none` monitoring; theaire/tkcgroup left (already had DMARC). tkcgroup.co holds 13 `_report._dmarc` authorizations.
+- **Still blocked (need 2 more token perms + a decision):** Email Routing forwarding (`Account · Email Routing Addresses · Edit` + destination/addresses) and CF Web Analytics for brand sites (`Account · Web Analytics · Edit`). Create `dmarc@tkcgroup.co` to read aggregate reports. Token is full-perms/1yr — rotate when done. Fleet CF facts in memory `[[reference_cloudflare_fleet]]`.
+
 ## Carryover Notes (T0→T1)
 
 **T0 (this thread) closed** — tree + hopper populated + meta-docs written. No framework chosen. No components built. No commits yet (Tyler's call on when to `git init` + first commit).
