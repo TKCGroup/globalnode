@@ -4,6 +4,26 @@
 >
 > Next thread picks up framework + first components.
 
+## Carryover Notes (T1 — 2026-05-30) — BUILT + DEPLOYED
+
+**Thread 1 shipped the site.** Pivoted a /Code meta-thread into a full globalnode.ai build + deploy. Decisions (Tyler): **Next.js** + **Vercel** + **pure manifesto, no data capture**.
+
+**What landed:**
+- Next.js 15.5.18 App Router, `output: "export"` (pure static, no server — honors "no custodian"). React 19.
+- 10 section components in `src/components/` ported 1:1 from `docs/hopper/cell-node-wire-visual.html`: Hero, Tiers, Diagram, Commitments, Lexicon, LandingMock, Altbox, Identity, Taglines, SiteFooter.
+- **Self-hosted IBM Plex** via `next/font` — build output verified to make **zero** googleapis/gstatic/analytics requests (60 self-hosted woff2). Brand promise honored.
+- Favicon (`src/app/icon.svg`, three-ring mark) + generated OG card (`scripts/gen-og.mjs` → `public/og.png`, 1200×630, sharp-rasterized, visually verified).
+- Phase-5 gates done: stripped the "recess — not a ratification" footer → real footer; wired CTAs (spec/consulate → GitHub, Altbox → altbot.ai); `prefers-reduced-motion` guard.
+- GitHub: **github.com/TKCGroup/globalnode** (public — secret-free by topology design; matches LONG-TERM OSS intent). 2 commits.
+- **LIVE: https://globalnode.vercel.app** (200, public — disabled Vercel Auth/ssoProtection via API). Project `prj_npLNV51hoovK3ZAsiKTz14gCdcD4` under team_qCawvn9yZiwWw0dKFfHWvr56.
+
+**LAST MILE — Tyler keyboard (DNS):** `globalnode.ai` + `www` attached to the Vercel project; DNS is on **Cloudflare** (zeus/haley.ns.cloudflare.com), currently `misconfigured` (no records yet). Needs 2 CNAME records, **DNS-only (grey cloud)**:
+- `@` (apex) → `9dd8688c6cc70a36.vercel-dns-017.com` (Cloudflare flattens apex CNAME)
+- `www` → `9dd8688c6cc70a36.vercel-dns-017.com`
+  (A-record alt: apex A → `216.198.79.1`; `www` CNAME → `cname.vercel-dns.com`.) Vercel auto-issues SSL once records resolve. No CF creds on MBP (NAS secret registry offline) — set in CF dashboard or hand /Code a CF API token to do it.
+
+**Deferred (still open from MID-TERM):** real Altbox product photo, Altbox deep-link to exact product page, competitive-landing research, light-mode sketch, spec/consulate sibling repos. None block launch.
+
 ## Carryover Notes (T0→T1)
 
 **T0 (this thread) closed** — tree + hopper populated + meta-docs written. No framework chosen. No components built. No commits yet (Tyler's call on when to `git init` + first commit).
