@@ -1,0 +1,77 @@
+# ============================================================================
+# globalnode .gitignore
+# ============================================================================
+# Design principle (see CLAUDE.md §"Data topology"):
+#   - GIT       — source code, tracked docs, configs. Works anywhere, any machine.
+#   - NAS       — secrets, env, large assets, cross-agent coordination. Not public.
+#   - LOCAL     — node_modules, build artifacts, IDE state. Rebuilt per machine.
+# ============================================================================
+
+# ─── LOCAL only (rebuilt per machine) ──────────────────────────────────────
+node_modules/
+.next/
+.turbo/
+.vercel/
+dist/
+build/
+out/
+.cache/
+coverage/
+*.tsbuildinfo
+.DS_Store
+
+# IDE / editor state
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.shared.json
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── NAS only (canonical home on /Volumes/homes/TKC Group) ─────────────────
+# Env / secrets / keys — canonical at:
+#   /Volumes/homes/TKC Group/GCN/keys-secrets-variables/.secrets/globalnode/
+# See .env.example for the required shape. Never commit the real .env.
+.env
+.env.local
+.env.*.local
+*.sa-key.json
+*firebase-adminsdk*.json
+.secrets/
+
+# Large design assets (logos in vector source, photoshoot RAWs, mockup PSDs)
+#   canonical at: /Volumes/homes/TKC Group/GCN/projects/globalnode/assets/
+# Tracked in repo: rendered / compressed versions in public/ only.
+*.psd
+*.sketch
+*.fig
+*.afdesign
+*.afpub
+*.afphoto
+
+# Analytics / tracking exports — we don't track users, but if marketing pulls
+# waitlist CSVs or similar, those land at:
+#   /Volumes/homes/TKC Group/GCN/projects/globalnode/research/
+# Never commit.
+*-export.csv
+*-waitlist-*.csv
+
+# Cross-agent coordination (lives on NAS, not in repo):
+#   - Fridges:        /Volumes/homes/TKC Group/Global_Agent_Memory/fridge/
+#   - Shard:          /Volumes/homes/TKC Group/Global_Agent_Memory/shards/{agent}.md
+#   - Protocol docs:  /Volumes/homes/TKC Group/Global_Agent_Memory/00_standards/
+#   - Project plan:   /Volumes/homes/TKC Group/GCN/projects/globalnode/
+#
+# None of those paths resolve inside this repo — just don't mirror them here.
+
+# ─── Hopper archives (local sort work) ─────────────────────────────────────
+# If you archive items out of docs/hopper/, they go to .archived/ — track
+# the archived file (it's the audit trail per ROUTING_STANDARD §3.4).
+# No ignore rule needed; listed here so the convention is discoverable.

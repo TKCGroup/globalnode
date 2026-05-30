@@ -1,0 +1,25 @@
+{
+  "name": "globalnode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Landing page for Cell · Node · Wire — the globalnode.ai public face of the Global-Agent-Network (GAN).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "gen:og": "node scripts/gen-og.mjs"
+  },
+  "dependencies": {
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
+    "sharp": "0.33.5",
+    "typescript": "5.7.3"
+  }
+}
