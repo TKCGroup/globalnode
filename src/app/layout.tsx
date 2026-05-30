@@ -1,7 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { IBM_Plex_Mono, IBM_Plex_Serif } from "next/font/google";
 import { SITE_URL } from "@/lib/links";
 import "./globals.css";
+
+// GA4 — TEMPORARY. Added 2026-05-30 by explicit founder (Tyler) decision as a
+// launch-phase measurement tool, accepting the tradeoff against the brand's
+// "zero third-party requests" stance. REMOVE THIS once globalnode.ai has real
+// traffic / real users, and restore the "zero third-party requests" footer
+// claim in SiteFooter.tsx. See CLAUDE.md §"No custodian" exception note.
+const GA_ID = "G-MHFN1LZZ12";
 
 /* next/font downloads these at build time and self-hosts them. The browser
    never makes a request to Google — zero third-party calls at runtime, which
@@ -77,6 +85,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${mono.variable} ${serif.variable}`}>
       <body>{children}</body>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}
+      </Script>
     </html>
   );
 }

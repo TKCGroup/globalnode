@@ -87,6 +87,8 @@ Brand commitment (see `CELL_NODE_WIRE.md` Six Commitments): the Wire has no cust
 
 Violating any of the above breaks the brand promise the page exists to make.
 
+> **⚠️ Active exception (2026-05-30, Tyler) — GA4 is live and intentional.** A GA4 tag (`G-MHFN1LZZ12`) was added to the live site by explicit founder decision as a **temporary launch-phase measurement tool**, knowingly accepting the tradeoff. The footer's "zero third-party requests" claim was removed accordingly (see `SiteFooter.tsx`). **Do NOT remove GA4 as a "fix" — it is deliberate.** Removal condition: once globalnode.ai has real traffic / real users, pull GA4 (`src/app/layout.tsx`) and restore the "zero third-party requests" footer line. Until then, leave it.
+
 ## Related agent docs
 
 - Global rules: `~/.claude/CLAUDE.md` (MBP canonical)

@@ -2,6 +2,14 @@
 
 > Next 1–7 threads · side quests · research to do before deciding · "later tonight" items.
 
+## Launch follow-ups (added T1 · 2026-05-30)
+
+- [ ] **Remove GA4** (`G-MHFN1LZZ12`) from `src/app/layout.tsx` + **restore the "zero third-party requests" footer line** in `SiteFooter.tsx` — once globalnode.ai has real traffic / real users. Tyler: GA4 is a temporary launch-measurement tool, not permanent. (See CLAUDE.md §"No custodian" exception note.)
+- [ ] **Complete DNSSEC** on the 5 external-registrar domains (globalnode.ai, tkcgroup.co, textalerts.ai, witcraft.ai, batchformat.ai) — add the DS record at each registrar (values in T1 thread / repo PROGRESS).
+- [ ] **Create `dmarc@tkcgroup.co`** alias so fleet DMARC aggregate reports are readable (records already published fleet-wide).
+- [ ] **Email forwarding** for brand addresses (e.g. hi@globalnode.ai) — needs token perm `Account · Email Routing Addresses · Edit` + destination inbox + address list.
+- [ ] **Cloudflare Web Analytics** for fleet brand sites — needs token perm `Account · Web Analytics · Edit`; then add snippets to each site's `<head>`.
+
 ## Framework decision aids
 
 - [ ] Run a quick Lighthouse audit on the `cell-node-wire-visual.html` as-is to baseline performance. If already >95, plain HTML might be the right answer for a single-page static landing.

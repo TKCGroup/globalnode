@@ -22,7 +22,7 @@ export function SiteFooter() {
             GitHub
           </a>
         </div>
-        <p>No custodian. No tracking. No backdoor. This page loads zero third-party requests.</p>
+        <p>No custodian. No backdoor. The Wire remembers nothing.</p>
         <p>© 2026 TKC Group · globalnode.ai · A Global-Agent-Network property.</p>
       </div>
     </footer>

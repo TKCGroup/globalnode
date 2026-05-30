@@ -75,3 +75,4 @@ pnpm-debug.log*
 # If you archive items out of docs/hopper/, they go to .archived/ — track
 # the archived file (it's the audit trail per ROUTING_STANDARD §3.4).
 # No ignore rule needed; listed here so the convention is discoverable.
+.vercel
